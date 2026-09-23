@@ -1,0 +1,50 @@
+# Credentials and local configuration
+.env
+.env.*
+*.key
+*.pem
+*.pfx
+credentials*
+secrets*
+
+# Private research material: never commit these paths
+includes/
+manuscript/
+paper/
+private/
+raw/
+restricted/
+reviews/
+scripts/research/
+
+# Manuscript, office, archive, GIS, and binary research formats
+*.doc
+*.docx
+*.mat
+*.pdf
+*.pickle
+*.pkl
+*.ppt
+*.pptx
+*.rar
+*.shp
+*.dbf
+*.shx
+*.tif
+*.tiff
+*.xls
+*.xlsx
+*.zip
+*.7z
+
+# Generated outputs and local tooling
+output/demo/*.csv
+output/demo/*.json
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.settings/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

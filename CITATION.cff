@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the archived ShorelineDT release."
+title: "ShorelineDT: minimal uncertainty-to-decision interface"
+abstract: >-
+  A reduced GAMA and Python demonstration of a schema-checked interface that
+  maps synthetic ensemble shoreline states to DBVR, probability-of-exceedance,
+  and intervention classes. Case-study data and manuscript sources are not
+  distributed in this release.
+type: software
+version: 1.0.0
+date-released: 2026-09-23
+repository-code: "https://github.com/cosmoslabvn/ShorelineDT1"
+license: MIT
+authors:
+  - family-names: "Tran"
+    given-names: "Thi Hoai Phuong"
+    affiliation: "VinUniversity, Hanoi, Vietnam"
+  - family-names: "Dinh"
+    given-names: "Nhat Quang"
+    affiliation: "Thuyloi University, Hanoi, Vietnam"
+  - family-names: "Nguyen-Ngoc"
+    given-names: "Doanh"
+    affiliation: "VinUniversity, Hanoi, Vietnam"
