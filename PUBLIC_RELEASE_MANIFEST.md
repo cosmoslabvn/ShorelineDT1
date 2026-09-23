@@ -1,4 +1,4 @@
-# Public release manifest
+# Public
 
 ## Purpose
 
