@@ -1,4 +1,4 @@
-# ShorelineDT — Minimal Public Research Release
+# ShorelineDT
 
 This repository is a deliberately reduced, reviewable release of the
 ShorelineDT uncertainty-to-decision interface. It demonstrates how an ensemble
