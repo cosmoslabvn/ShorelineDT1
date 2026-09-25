@@ -12,6 +12,7 @@ research workspace and not a case-study data archive.
 | --- | --- |
 | `models/` | Reduced GAMA CSV-contract visualization |
 | `scripts/demo/` | Deterministic standard-library demonstration and tests |
+| `scripts/numerics/` | Reference nourishment kernel and invariant tests |
 | `sample_data/` | Synthetic state records only |
 | `docs/` | Reproducibility and disclosure documentation |
 | `.github/workflows/` | Automated release audit and tests |

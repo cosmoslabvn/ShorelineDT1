@@ -50,7 +50,14 @@ class DemoTest(unittest.TestCase):
         output = self.run_demo("--stress-retreat-m", "20")
         with (output / "decisions.csv").open(newline="", encoding="utf-8") as handle:
             decisions = list(csv.DictReader(handle))
-        self.assertTrue(any(row["action"] == "nourish" for row in decisions))
+        self.assertTrue(any(row["action"] == "allocation_candidate" for row in decisions))
+
+    def test_dbvr_one_is_p1(self) -> None:
+        output = self.run_demo("--stress-retreat-m", "16")
+        with (output / "decisions.csv").open(newline="", encoding="utf-8") as handle:
+            decisions = {row["unit"]: row for row in csv.DictReader(handle)}
+        self.assertEqual(decisions["S2"]["dbvr"], "1.000000")
+        self.assertEqual(decisions["S2"]["priority"], "P1")
 
     def test_invalid_buffer_is_rejected(self) -> None:
         result = subprocess.run(

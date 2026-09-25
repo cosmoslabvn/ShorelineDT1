@@ -27,7 +27,7 @@ def normal_cdf(value: float) -> float:
 
 
 def classify(dbvr: float, poe: float) -> str:
-    if dbvr > 1.0:
+    if dbvr >= 1.0:
         return "P1"
     if dbvr >= 0.5:
         return "P2"
@@ -115,7 +115,8 @@ def main() -> None:
         priority = classify(dbvr, poe)
         deficit = max(retreat - args.buffer_m, 0.0)
         volume = deficit * args.unit_spacing_m * args.active_profile_height_m
-        action = "nourish" if priority == "P1" else ("monitor" if priority == "P3" else "none")
+        action = ("allocation_candidate" if priority in {"P1", "P2"}
+                  else ("review" if priority == "P3" else "none"))
         components = {name: float(latest[name]) for name in ("Yst", "Ylst", "Ybru", "Yvlt")}
         dominant = max(components, key=lambda name: abs(components[name]))
         numeric_id = unit_number(unit)
@@ -142,7 +143,7 @@ def main() -> None:
             "dbvr": f"{dbvr:.6f}",
             "poe": f"{poe:.6f}",
             "priority_code": int(priority[1]),
-            "action_code": 1 if action == "nourish" else (2 if action == "monitor" else 0),
+            "action_code": 1 if action == "allocation_candidate" else (2 if action == "review" else 0),
             "volume_m3": f"{volume:.2f}",
         })
 
@@ -156,6 +157,7 @@ def main() -> None:
         "units_processed": len(decisions),
         "buffer_m": args.buffer_m,
         "stress_retreat_m": args.stress_retreat_m,
+        "baseline_mode": "first-record reference; single-phase synthetic demonstration",
         "outputs": ["decisions.csv", "gama_contract.csv"],
     }
     (args.output_dir / "run_metadata.json").write_text(

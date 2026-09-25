@@ -12,6 +12,8 @@ From a clean clone, a reader can:
 6. generate a stable numeric CSV contract;
 7. load that contract into a reduced GAMA agent visualization;
 8. run automated tests covering normal and intervention behavior.
+9. verify the nourishment reference kernel against non-negativity, no-flux
+   mass balance, the specified half-life, and time-step consistency.
 
 ## What this release does not reproduce
 
@@ -27,6 +29,12 @@ It does not reproduce:
 The supplied values are synthetic and exist only to exercise the software
 contract. They must not be presented as observations, forecasts, validation
 evidence, or coastal-management recommendations.
+
+The synthetic demonstration has only one temporal phase and uses its first
+record as a reference. It does not reproduce the case study's separation of a
+phase-matched DBVR change from a fixed asset-reference PoE change. That
+distinction is documented in the associated manuscript and requires the
+access-controlled seasonal contracts.
 
 ## Relationship to the private research archive
 

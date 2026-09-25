@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the archived ShorelineDT release."
-title: "ShorelineDT: minimal uncertainty-to-decision interface"
+title: "ShorelineDT"
 abstract: >-
   A reduced GAMA and Python demonstration of a schema-checked interface that
   maps synthetic ensemble shoreline states to DBVR, probability-of-exceedance,

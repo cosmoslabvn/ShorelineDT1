@@ -3,7 +3,7 @@
 This repository is a deliberately reduced, reviewable release of the
 ShorelineDT uncertainty-to-decision interface. It demonstrates how an ensemble
 shoreline state is validated, converted to DBVR and probability-of-exceedance
-(PoE) metrics, classified into P0--P3 priorities, and passed to GAMA through a
+(PoE) metrics, classified into P0--P3 screening tiers, and passed to GAMA through a
 numeric CSV contract.
 
 The release uses a small **synthetic** dataset. It does not contain manuscript
@@ -17,6 +17,8 @@ Included:
 - the reduced Python uncertainty-to-decision implementation;
 - a deterministic synthetic input with six transects;
 - automated tests for the normal and intervention branches;
+- a standard-library reference implementation and invariant tests for the
+  synchronous nourishment diffusion--decay kernel;
 - a minimal GAMA model that consumes the generated CSV contract;
 - documentation of the interface and reproducibility boundary.
 
@@ -48,7 +50,9 @@ ShorelineDT/
 |-- sample_data/synthetic_states.csv
 |-- scripts/audit_release.py
 |-- scripts/demo/run_demo.py
-`-- scripts/demo/test_demo.py
+|-- scripts/demo/test_demo.py
+|-- scripts/numerics/nourishment.py
+`-- scripts/numerics/test_nourishment.py
 ```
 
 ## Requirements
@@ -85,6 +89,7 @@ an observation or forecast.
 
 ```bash
 python -m unittest discover -s scripts/demo -p "test_*.py"
+python -m unittest discover -s scripts/numerics -p "test_*.py"
 python scripts/audit_release.py
 ```
 
@@ -101,6 +106,13 @@ the configured public-release limit.
 
 The colors represent the synthetic P0--P3 decision classes. They are a software
 demonstration, not a management recommendation.
+
+The compact demonstration contains one synthetic temporal phase. It therefore
+checks threshold and contract behavior but does not reproduce the manuscript's
+phase-matched case-study analysis. In the production formulation, DBVR uses a
+matching seasonal baseline, while PoE retains the fixed asset-reference
+shoreline. P1 begins at DBVR = 1.0; P1 and P2 are allocation candidates, P3 is
+a review tier, and none of these labels is a legal or management mandate.
 
 ## Reproducibility and scientific interpretation
 
